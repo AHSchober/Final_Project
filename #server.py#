@@ -15,6 +15,6 @@ def index():
         else:
                 bgcolor = 'green'
         
-        render_template('index.html', bgcolor=val)
+        render_template('index.html', bgcolor=bgcolor)
         
 
