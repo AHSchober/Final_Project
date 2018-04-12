@@ -9,11 +9,13 @@ app = Flask(__name__)
 def index():
         s = serial.Serial('/dev/ttyAMC')
         s.write('p')
-        if(p):
+        b = s.readline()
+        if(b[0]=='1'):
                 bgcolor = 'blue'
         else:
                 bgcolor = 'green'
+        s.close()
         
-        render_template('index.html', bgcolor=val)
+        render_template('index.html', bgcolor=bgcolor)
         
 
