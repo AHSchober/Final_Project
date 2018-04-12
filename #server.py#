@@ -9,6 +9,7 @@ app = Flask(__name__)
 def index():
         s = serial.Serial('/dev/ttyAMC')
         s.write('p')
+        b = s.readline()
         if(p):
                 bgcolor = 'blue'
         else:
