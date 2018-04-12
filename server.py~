@@ -1,0 +1,29 @@
+#!/usr/bin/python
+from flask import Flask, request, render_template
+
+import random
+
+app = Flask(__name__)
+
+@app.route("/")
+def hello():
+	return "Hello World!"
+
+@app.route("/random")
+def random():
+	return render_template("random.html", val=random.random())
+
+@app.route("/bye")
+def bye():
+	return 'bye bye'
+
+@app.route("/about")
+def about():
+	return render_template("about.html")
+
+@app.route("/signup", methods=['POST'])
+def signup():
+        print('log: %s' % request.form['email'])
+        return 'Thank you for signing up!'
+
+
